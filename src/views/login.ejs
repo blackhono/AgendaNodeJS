@@ -1,0 +1,73 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Login</h1>
+      <p class="text-center lead">Faça login ou crie sua conta abaixo</p>
+
+      <div class="row">
+        <div class="col-lg my-5">
+          <h4>Faça seu cadastro</h4>
+          <form class="form-cadastro" method="POST" action="/login/register">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %> />
+            <div class="form-group">
+              <label for="exampleInputEmail1">Endereço de Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                placeholder="Enter email" name="email">
+              <small id="emailHelp" class="form-text text-muted" name="message">Nós não compartilhamos seu email com ninguém.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Senha</label>
+              <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password"
+                name="password">
+            </div>
+
+            <!--   aqui podemos fazer o lembrar de mim
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+-->
+            <br>
+            <button type="submit" class="btn btn-primary">Criar conta</button>
+          </form>
+        </div>
+        <div class="col-lg my-5">
+          <h4>Já é usuário? Então logue.</h4>
+          <form class="form-login"method="POST" action="/login/login">
+            <input type="hidden" name="_csrf" value=<%= csrfToken %> />
+            <div class="form-group">
+              <label for="exampleInputEmail1">Endereço de Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email" name="email">
+              <small id="emailHelp1" class="form-text text-muted" name="message">Nós não compartilhamos seu email com ninguém.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Senha</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                name="password">
+            </div>
+
+            <!--   aqui podemos fazer o lembrar de mim
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+-->
+            <br>
+            <button type="submit" class="btn btn-primary">Logar</button>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+
+<%- include('includes/footer') %>

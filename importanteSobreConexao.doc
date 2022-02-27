@@ -1,0 +1,88 @@
+Nunca colocamos a senha direto no server.
+
+isso é boa pratica de programação.
+
+não jogue esse dados livres por ai.
+
+Então usamos o 
+
+
+npm install dotenv 
+
+
+para criar variaveis de ambiente ok? OK. 
+
+Vamos usar mongoose para modelar os dados e
+ele também faz a conexão com nossa base de dados
+
+
+npm install mongoose
+
+
+nesse projeto tive que criar um arquivo
+.env
+
+para armazenar minhas variaveis de ambiente (senha de
+banco de dados, login) e coisas desse tipo.
+
+em .env criei então minha variavel e atribui o valor da minha
+linha de conexão com o DB
+
+em .env ficou assim:
+
+CONNECTIONSTRING = minhaStringDeConexaoComDB
+
+e para usar ela no server.js fiz o import do dotenv assim:
+
+require('dotenv').config();
+
+quando queremos usar essa variavel de ambiente é bem simples
+basta usar:
+
+process.env.NOMEDAVARIAVELDEAMBIENTE (no meu caso ficou assim
+process.env.CONNECTIONSTRING)
+
+agora partimos para criar a conexão com o BANCO DE DADOS usando
+o mongoose.
+
+const mongoose = require('mongoose');
+
+                     string de conexão            options para solucionar alguns errinhos.
+mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(()=> {
+  app.emit('conexaoEstabelecida')  
+})
+.catch(e => console.log(e));
+
+simples certo? Pois é. 
+
+O app.emit eu coloquei para que fosse criado um sinal e somente quando esse 
+sinal fosse preenchido com conexaoEstabelecida ele passaria do meu if 
+que roda o servidor. Assim vai ter sempre a conexão com o DB.
+Para interceptar o sinal basta usar app.on como no exemplo:
+
+           sinal               função realizada quando bater o sinal
+app.on('conexaoEstabelecida', ()=>{
+    app.listen(3000, (() => {
+        console.log('Acessar: http://localhost:3000');
+        console.log('servidor executando na porta 3000');
+        console.log()
+    }));
+})
+
+
+
+
+Agora sobre os modelos
+
+eu tenho um modelo na pasta models de exemplo
+já que o mongodb não trata nossos dados, nós tratamos eles com o model!
+e utilizo o model no homeController. Não tem muito mistério nisso. Olhando lá
+já da para entender.
+
+
+Só para deixar claro não devemos por o model.create dentro do controller pois
+o controller tem outra função. Fiz isso apenas como demonstrativo.
+Normalmente criamos uma classe em model e tratamos os dados e essa classe fica
+responsavel pelo model. Por isso no próximo já vai estar da maneira "CORRETA".
+

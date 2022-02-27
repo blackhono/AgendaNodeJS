@@ -1,0 +1,3 @@
+as variaveislocais de rota podem ser usadas de varias maneiras mas uma interessante é
+simplesmente passar dados de um formulario de uma rota para a outra e usar o mesmo dado
+para prencher algo do contéudo hmtl da outra pagina... ou componente! 

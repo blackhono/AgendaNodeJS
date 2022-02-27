@@ -1,0 +1,14 @@
+<% Controle de fluxo (if, for, forOf...) %>
+<%= Imprime escapando caracteres %> (se usar html vai aparecer as tags)
+<%- Imprime sem escapar tags %> (no de cima não da para usar style,
+nesse da para passar uma tag e colocar style).
+<%# Comentário %>
+<%include('CAMINHO/ARQUIVO'); %>
+
+exemplo:
+
+<% if(codigo) { %>
+    <%= exibe informação %>
+<% } else { %>
+     <%= exibe outra informação %>
+<% } %>

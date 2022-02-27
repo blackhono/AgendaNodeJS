@@ -1,0 +1,20 @@
+npm init -y
+
+npm install express
+
+npm install nodemon --save-dev
+
+
+(criei o script do nodemon no package.json)
+
+npm i ejs
+
+
+Nesse 15 irei usar o express-session para armazenar dados de sessão
+connect-mongo para salvar a sessão no banco de dados
+connect-flash que são mensagens que ficam salvas na sessão. Tipo
+aquelas mensagens de senha errada. (mais fácil no react porém
+é bom saber fazer no js)
+comando para instalar tudo:
+
+npm i express-session connect-mongo connect-flash 
