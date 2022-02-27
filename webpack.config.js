@@ -1,7 +1,7 @@
 const path = require('path'); //commonJS é o padrão do node.
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './frontend/main.js',
     output: {
       path: path.resolve(__dirname, 'public', 'assets', 'js'),
