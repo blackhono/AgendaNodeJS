@@ -7,8 +7,8 @@
     "node":"14.x"
   },
   "scripts": {
-    "start": "node server.js",
-    "devnode": "nodemon server.js --ignore public --ignore frontend",
+    "start": "node index.js",
+    "devnode": "nodemon index.js --ignore public --ignore frontend",
     "dev": "webpack -w"
   },
   "keywords": [],

@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000;
 
 
 const mongoose = require('mongoose');
@@ -82,7 +83,7 @@ app.use(routes);
 
 
 app.on('conexaoEstabelecida', ()=>{
-    app.listen(3000, (() => {
+    app.listen(port, (() => {
         console.log('Acessar: http://localhost:3000');
         console.log('servidor executando na porta 3000');
         console.log()
