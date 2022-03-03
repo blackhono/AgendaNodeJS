@@ -24,6 +24,16 @@ export default class Login{
         const passwordInput = el.querySelector('input[name="password"');
         let error = false;
 
+        if(!emailInput.value || !passwordInput.value){
+            error = true;
+            this.createError(emailInput, 'E-mail deve ser preenchido');
+        }
+        //
+        if(!passwordInput.value){
+            error = true;
+            this.createError(passwordInput, 'Senha deve ser preenchida')
+        }
+
         if(!validator.isEmail(emailInput.value)){
             error = true;
             this.createError(emailInput, 'E-mail invalido')
