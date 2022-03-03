@@ -23,6 +23,9 @@ export default class Login{
         const emailInput = el.querySelector('input[name="email"');
         const passwordInput = el.querySelector('input[name="password"');
         let error = false;
+        for(let cleanErrorText of this.formulario.querySelectorAll('.text-danger')){
+            cleanErrorText.remove();
+        }
 
         if(!emailInput.value || !passwordInput.value){
             error = true;
